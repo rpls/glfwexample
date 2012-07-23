@@ -349,7 +349,7 @@ glfwDisable                 = __glfwdll__.glfwDisable;
 
 def glfwGetVersion():
     major, minor, rev = ctypes.c_int(0), ctypes.c_int(0), ctypes.c_int(0)
-    __glfwdll__.glfwGetVersion( byref(major), byref(minor), byref(rev) )
+    __glfwdll__.glfwGetVersion( ctypes.byref(major), ctypes.byref(minor), ctypes.byref(rev) )
     return major.value, minor.value, rev.value
 
 def glfwGetVideoModes( maxcount=16 ):
@@ -363,12 +363,12 @@ def glfwGetVideoModes( maxcount=16 ):
 
 def glfwGetDesktopMode():
     mode = GLFWvidmode()
-    __glfwdll__.glfwGetDesktopMode( byref(mode) )
+    __glfwdll__.glfwGetDesktopMode( ctypes.byref(mode) )
     return mode.Width, mode.Height, mode.RedBits, mode.BlueBits, mode.GreenBits
 
 def glfwGetWindowSize():
     width, height = ctypes.c_int(0), ctypes.c_int(0)
-    __glfwdll__.glfwGetWindowSize( byref(width), byref(height) )
+    __glfwdll__.glfwGetWindowSize( ctypes.byref(width), ctypes.byref(height) )
     return width.value, height.value
 
 def glfwSetWindowSizeCallback( callback ):
