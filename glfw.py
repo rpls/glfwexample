@@ -353,12 +353,12 @@ def glfwGetVersion():
     return major.value, minor.value, rev.value
 
 def glfwGetVideoModes( maxcount=16 ):
-    ctypes.c_modes = (GLFWvidmode*maxcount)()
-    n = __glfwdll__.glfwGetVideoModes( ctypes.c_modes, maxcount )
+    c_modes = (GLFWvidmode*maxcount)()
+    n = __glfwdll__.glfwGetVideoModes( c_modes, maxcount )
     modes = []
     for i in range(n):
-        modes.append( (ctypes.c_modes[i].Width, ctypes.c_modes[i].Height,
-           ctypes.c_modes[i].RedBits, ctypes.c_modes[i].BlueBits, ctypes.c_modes[i].GreenBits) )
+        modes.append( (c_modes[i].Width, c_modes[i].Height,
+           c_modes[i].RedBits, c_modes[i].BlueBits, c_modes[i].GreenBits) )
     return modes
 
 def glfwGetDesktopMode():

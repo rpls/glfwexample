@@ -34,7 +34,6 @@
 ##############################################################################
 import os
 import sys
-import ctypes
 import numpy as np
 import shaderutil
 import hommat as hm
